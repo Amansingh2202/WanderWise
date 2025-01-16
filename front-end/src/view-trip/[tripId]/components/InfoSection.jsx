@@ -29,6 +29,8 @@ const InfoSection = ({trip}) => {
       // console.log(resp.data.places[0].photos[3].name)
       const PhotoUrl=PHOTO_REF_URL.replace('{NAME}',resp.data.places[0].photos[3].name)
     setPhotoUrl(PhotoUrl)
+    console.log({trip})
+    
     })
    }
 
@@ -36,18 +38,19 @@ const InfoSection = ({trip}) => {
     <div  className="flex ">
         <img src={photoUrl?photoUrl:"/placeholder.jpg" } className="h-[380px] w-[500px] object-cover rounded-xl"/>
 
-        <div className="flex justify-between ">
+        <div className="flex justify-between  ">
 
          <div className="  flex flex-col gap-2 text-white  pl-10  ">
             <h2 className="text-white font-bold ">{trip?.userSelection?.destination?.label} </h2>
             <div className="flex gap-5   ">
                 <h2 className=" px-3 pt-1 bg-slate-600 rounded-full text-white  h-6 text-xs md:text-md items-center " > 📅 {trip.userSelection?.noOfdays} Days</h2>
-                <h2 className=" px-3 pt-1 bg-slate-600 rounded-full text-white  h-6 text-xs md:text-md" > 💰 Budget -> {trip.userSelection?.budget}</h2>
+                <h2 className=" px-3 pt-1 bg-slate-600 rounded-full text-white  h-6 text-xs md:text-md" > 💰 Budget  {trip.userSelection?.budget}</h2>
                 <h2 className=" px-3 pt-1 bg-slate-600 rounded-full text-white  h-6 text-xs md:text-md " > ✈️  For {trip.userSelection?.travelers}</h2>
                 
                 {/* <Button className="bg-slate-600  ml-2 h-6 "><FiSend /></Button> */}
             </div>
-            <h2 className="   font-serif   h-6 text-slate-500  pt-5 " >   {trip?.TripData?.destinationData}</h2>
+            {/* <h2 className="   font-serif   h-6 text-white  pt-5 " >   {trip?.TripData?.destinationData}</h2> */}
+              
          </div>
 
        
