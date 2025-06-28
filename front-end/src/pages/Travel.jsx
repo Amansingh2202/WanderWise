@@ -217,18 +217,16 @@ await setDoc(doc(db,"AItrips",docId),{
           </div>
               
          <div className=' justify-end flex'>
-         <Button  disabled={loading} onClick={OnGenerateTrip}>
-         {loading ? (
-  <div className="flex justify-center items-center min-h-screen">
-    <AiOutlineLoading3Quarters className="w-7 h-7 animate-spin" />
-  </div>
-) : (
-  "Generate Trip"
-)}
-
-          
-          
-         </Button>
+         <Button disabled={loading} onClick={OnGenerateTrip}>
+  {loading ? (
+    <div className="flex items-center gap-2">
+      <AiOutlineLoading3Quarters className="w-5 h-5 animate-spin" />
+      <span>Generating...</span>
+    </div>
+  ) : (
+    "Generate Trip"
+  )}
+</Button>
 
          </div>
       </div>
